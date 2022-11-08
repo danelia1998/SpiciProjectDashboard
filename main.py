@@ -11,7 +11,7 @@ app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=1)
 
 @app.route('/')
 def home():
-    return 'Hello, World!'
+    return render_template('main.html')
 
 
 @app.route('/login')
