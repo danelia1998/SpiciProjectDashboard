@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.secret_key = urandom(16)
 app.permanent_session_lifetime =  timedelta(seconds=10)
 
-@app.route('/')
+@app.route('/a')
 def login():
     if request.args.get('p', '') == '123':
         session['loggedin'] = True

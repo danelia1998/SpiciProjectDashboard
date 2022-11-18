@@ -10,7 +10,7 @@ def home():
 def signup():
     con = sqlite3.connect('login.db')
     cur = con.cursor()
-    cur.execute("INSERT INTO Users (Username, Password) VALUES (?,?)",
+    cur.execute("INSERT INTO Users (Email, Password) VALUES (?,?)",
                     (request.form['un'],request.form['pw']))
     con.commit()
     return request.form['un'] + ' added'
@@ -19,10 +19,10 @@ def signup():
 def login():
     con = sqlite3.connect('login.db')
     cur = con.cursor()
-    cur.execute("SELECT * FROM Users WHERE Username=? AND Password=?",
+    cur.execute("SELECT * FROM Users WHERE Email=? AND Password=?",
                     (request.form['un'],request.form['pw']))
     match = len(cur.fetchall())
     if match == 0:
-        return "Wrong username and password"
+        return "Wrong email and password"
     else:
         return "Welcome " + request.form['un']

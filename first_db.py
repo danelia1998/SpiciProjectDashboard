@@ -8,7 +8,7 @@ def create():
 	con = sqlite3.connect('login.db')
 	cur = con.cursor()
 	cur.execute(	"""	CREATE TABLE Users(
-					Username VARCHAR(20) NOT NULL PRIMARY KEY,
+					Email VARCHAR(20) NOT NULL PRIMARY KEY,
 					Password VARCHAR(20) NOT NULL
 						  )
 			""")
@@ -19,8 +19,8 @@ def create():
 def insert():
 	con = sqlite3.connect('login.db')
 	cur = con.cursor()
-	cur.execute(	"""	INSERT INTO Users (Username, Password)
-					VALUES ("Bob", "123")
+	cur.execute(	"""	INSERT INTO Users (Email, Password)
+					VALUES ("danelia@gmail.com", "1234567d")
 			""")
 	con.commit()
 	return 'INSERT'

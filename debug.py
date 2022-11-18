@@ -16,7 +16,7 @@ def insert():
     con = sqlite3.connect('login.db')
     cur = con.cursor()
     try:
-        cur.execute("INSERT INTO Users (Username, Password) VALUES (?,?)",
+        cur.execute("INSERT INTO Users (Email, Password) VALUES (?,?)",
                         (request.form['un'],request.form['pw']))
     except Exception as e:
         return str(e)

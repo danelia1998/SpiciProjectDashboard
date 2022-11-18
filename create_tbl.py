@@ -9,7 +9,7 @@ def hello_world():
     try:
         cur.execute("""
         CREATE TABLE Users(
-        Username VARCHAR(20) NOT NULL PRIMARY KEY,
+        Email VARCHAR(20) NOT NULL PRIMARY KEY,
 	Password VARCHAR(20) NOT NULL)
         """)
     except sqlite3.OperationalError as e:

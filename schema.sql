@@ -1,4 +1,4 @@
 CREATE TABLE IF NOT EXISTS Users(
-						Username text,
+						Email text,
 						Password text,
-						Primary Key(Username))
+						Primary Key(Email))
