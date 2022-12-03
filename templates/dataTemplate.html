@@ -1,0 +1,145 @@
+<html>
+<head>
+    <style>
+body {
+  font-family: 'lato', sans-serif;
+}
+.container {
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+h2 {
+    font-size: 26px;
+    margin: 39px 0;
+    text-align: center;
+    color: white;
+}
+
+li {
+    border-radius: 3px;
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+  }
+  .table-header {
+    background-color: rgba(40,57,101,.9);
+    font-size: 19px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    box-shadow: 0 12px 15px 0 rgb(0 0 0 / 64%), 0 17px 50px 0 rgb(0 0 0 / 59%)
+  }
+  .table-row {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+  }
+  .col-1 {
+    flex-basis: 20%;
+  }
+
+.responsive-table {
+
+  .table-header {
+      display: none;
+    }
+    .table-row{
+    }
+
+    li {
+      display: block;
+    }
+    .col {
+      flex-basis: 100%;
+    }
+    .col {
+      display: flex;
+      padding: 10px 0;
+      &:before {
+        color: #6C7A89;
+        padding-right: 10px;
+        content: attr(data-label);
+        flex-basis: 50%;
+        text-align: right;
+      }
+    }
+}
+.button-section{
+   display: flex;
+   padding-bottom: 60px;
+}
+
+.home-btn-group-add{
+    left: 10%;
+    position: absolute;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 25px;
+    background: #1161ee;
+    box-shadow: 0 12px 15px 0 rgb(0 0 0 / 24%), 0 17px 50px 0 rgb(0 0 0 / 19%);
+}
+.home-btn-group-logout{
+    right: 10%;
+    position: absolute;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 25px;
+    background: #1161ee;
+    box-shadow: 0 12px 15px 0 rgb(0 0 0 / 24%), 0 17px 50px 0 rgb(0 0 0 / 19%);
+}
+
+.buttonText{
+    color: white;
+    text-decoration: none;
+}
+
+.mainForm {
+    background: linear-gradient(1deg, rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50)), url(https://www.spici.eu/wp-content/uploads/Federico-II-Spici-Srl-1-scaled.jpg);
+}
+
+.rowStyle{
+    background: rgba(40,57,101,.9);
+    box-shadow: 0 12px 15px 0 rgb(0 0 0 / 64%), 0 17px 50px 0 rgb(0 0 0 / 59%)
+}
+    </style>
+</head>
+<body class="mainForm">
+     <div class="container">
+  <h2>Employees And Contacts</h2>
+  <div class="button-section">
+    <div class="home-btn-group-add">
+      <a class="home-login button buttonText" href="/addNew">Add New</a>
+    </div>
+    <div class="home-btn-group-logout">
+      <a class="home-login button buttonText" href="/logout">Log Out</a>
+    </div>
+  </div>
+  <ul class="responsive-table">
+    <li class="table-header">
+      <div class="col col-1 buttonText">Name</div>
+      <div class="col col-1 buttonText">Surname</div>
+      <div class="col col-1 buttonText">Age</div>
+      <div class="col col-1 buttonText">Company</div>
+      <div class="col col-1 buttonText">Email</div>
+      <div class="col col-1 buttonText">Role</div>
+      <div class="col col-1 buttonText">Phone Number</div>
+    </li>
+    {%- for row in rows %}
+    <li class="table-row rowStyle">
+      <div class="col col-1 buttonText" data-label="Name">{{ row.0 }}</div>
+      <div class="col col-1 buttonText" data-label="Surname">{{ row.1 }}</div>
+      <div class="col col-1 buttonText" data-label="Age">{{ row.2 }}</div>
+      <div class="col col-1 buttonText" data-label="Company">{{ row.3 }}</div>
+      <div class="col col-1 buttonText" data-label="Email">{{ row.4 }}</div>
+      <div class="col col-1 buttonText" data-label="Role">{{ row.5 }}</div>
+      <div class="col col-1 buttonText" data-label="Phone Number">{{ row.6 }}</div>
+    </li>
+    {%- endfor %}
+  </ul>
+
+</div>
+</body>
+</html>
