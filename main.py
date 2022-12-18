@@ -149,7 +149,7 @@ def verify():
 
 @app.route('/un')
 def un():
-    if 'username' in session:
+    if 'email' in session:
         return 'Logged in as %s' % escape(session['email'])
     return render_template('main.html')
 
